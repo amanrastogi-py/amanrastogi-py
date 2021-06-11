@@ -1,0 +1,36 @@
+count = int(input("Please the number: "))
+
+fibonacci = [0,1]
+n1, n2 = 0, 1
+nth=0
+while count >= nth:
+    # print(n1)
+    nth = n1 + n2
+    fibonacci.append(nth)
+    # update values
+    n1 = n2
+    n2 = nth
+
+def ordinal(n):
+    s = ('th', 'st', 'nd', 'rd') + ('th',)*10
+    v = n%100
+    if v > 13:
+      return f'{n}{s[v%10]}'
+    else:
+      return f'{n}{s[v]}'
+
+
+if count not in list(fibonacci):
+    print("It is not a Fibonacci Number")
+    print("Below is Fibonacci list till after your entered number")
+    print(fibonacci)
+elif count==0:
+    print("it is 1st Fibonacci Number")
+elif count==1:
+    print("it is 2nd as well as 3rd Fibonacci Number, first Fibonacci Number is 0")
+    print("Here is a sequ.ence of Fibonacci Number: [0, 1, 1, 2, 3]")
+else:
+    fibonacci.pop()
+    no=len(fibonacci)
+    print(fibonacci)
+    print(f"it is {ordinal(no)} Fibonacci number")
